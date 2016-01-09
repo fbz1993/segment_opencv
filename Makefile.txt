@@ -1,4 +1,4 @@
-INCDIR = -I segment -I../ `pkg-config --cflags opencv`
+INCDIR = -I../ `pkg-config --cflags opencv`
 OPT    = -O3
 CPP    = g++
 CFLAGS = $(DBG) $(OPT) $(INCDIR) -std=c++11
@@ -7,7 +7,7 @@ LINK   = -lm `pkg-config --libs opencv`
 all: segment_opencv.o test
 
 segment_opencv.o: segment_opencv.cpp segment_opencv.h
-	$(CPP) $(CFLAGS) -c $< -o $@
+	$(CPP) $(CFLAGS) -I segment -c $< -o $@
 
 test: test.cpp segment_opencv.o
 	$(CPP) $(CFLAGS) -o $@ $^ $(LINK)
