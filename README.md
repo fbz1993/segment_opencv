@@ -5,10 +5,15 @@ OpenCV wrapper of graph-based segmentation (Felzenszwalb)
 OpenCV 3.x
 
 # Compile
+
+Run following command to create object file.
+```
 % make -f Makefile.txt
+```
 
 # Usage
+```
 cv::Mat src_img = cv::imread(imgname, 1);
 cv::Mat dst_img;
 segment_image(src_img, 0.5, 500, 50, dst_img); // dst_img is CV_32SC. Each element is the index of segment.
-
+```
